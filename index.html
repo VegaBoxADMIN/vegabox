@@ -4,7 +4,226 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VegaBox</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== GLOBAL RESET ===== */
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0f0f0f;
+    color:white;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+    background:#141414;
+    padding:18px 40px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 10px rgba(0,0,0,0.6);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#ff2c2c;
+}
+
+/* ===== SEARCH BAR ===== */
+#searchBar{
+    margin-left:auto;
+    padding:10px 18px;
+    border-radius:20px;
+    border:none;
+    background:#222;
+    color:white;
+    font-size:14px;
+}
+
+/* ===== HERO BANNER ===== */
+.hero{
+    height:420px;
+    background:
+    linear-gradient(to right, rgba(0,0,0,.8), rgba(0,0,0,.2)),
+    url("thumbnails/Jujutsu_Kaisen_Season_2_Thumbnail.jpeg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding-left:80px;
+}
+
+.hero-content h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    margin-bottom:20px;
+    font-size:18px;
+    max-width:500px;
+}
+
+.hero-btn{
+    background:#ff2c2c;
+    padding:12px 25px;
+    border-radius:6px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.hero-btn:hover{
+    background:#ff5555;
+}
+
+/* ===== PAGE CONTAINER ===== */
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:40px;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title{
+    font-size:24px;
+    margin-bottom:25px;
+}
+
+/* ===== SHOW GRID ===== */
+.shows-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+/* ===== SHOW CARD ===== */
+.show-card{
+    background:#1c1c1c;
+    border-radius:10px;
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+}
+
+.show-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* ===== THUMBNAIL ===== */
+.thumbnail{
+    position:relative;
+    width:100%;
+    height:300px;
+    overflow:hidden;
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:0.3s;
+}
+
+.thumbnail:hover img{
+    transform:scale(1.08);
+}
+
+/* ===== PLAY BUTTON OVERLAY ===== */
+.play-overlay{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:36px;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-decoration:none;
+    opacity:0;
+    transition:0.25s;
+}
+
+.thumbnail:hover .play-overlay{
+    opacity:1;
+}
+
+/* ===== CARD TITLE ===== */
+.show-card h3{
+    padding:12px;
+    text-align:center;
+    font-size:18px;
+}
+
+/* ===== VIDEO PLAYER PAGE ===== */
+.player-page{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+video{
+    width:100%;
+    max-width:1000px;
+    border-radius:10px;
+    background:black;
+    margin-top:20px;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width:900px){
+    .hero{
+        height:320px;
+        padding-left:40px;
+    }
+    .hero-content h1{
+        font-size:36px;
+    }
+}
+
+@media (max-width:600px){
+    .container{
+        padding:20px;
+    }
+    .logo{
+        font-size:22px;
+    }
+    #searchBar{
+        width:140px;
+    }
+    .hero{
+        height:260px;
+        padding-left:20px;
+    }
+    .hero-content h1{
+        font-size:26px;
+    }
+    .hero-content p{
+        font-size:14px;
+    }
+    .thumbnail{
+        height:220px;
+    }
+}
+</style>
+
 </head>
 <body>
 
