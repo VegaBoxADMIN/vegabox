@@ -1,25 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VegaBox Player</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jujutsu Kaisen – Player</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- TOP BAR -->
-<header class="topbar">
-  <div class="logo">VegaBox</div>
-</header>
+  <main class="player-layout">
 
-<!-- VIDEO PLAYER -->
-<main class="container player-page">
-  <video id="videoPlayer" controls>
-    Your browser does not support HTML5 video.
-  </video>
-</main>
+    <!-- EPISODE SIDEBAR -->
+    <aside class="episode-sidebar">
+      <h3>Episodes</h3>
 
-<script src="script.js"></script>
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1G5AwZIqXsjYTuAGL24UYzU0FRChLEW92&title=Jujutsu Kaisen&episode=1">
+        Episode 1
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1Zy3cIRZVpZq9Rku3pIJ-TgpJAQuhtEZl&title=Jujutsu Kaisen&episode=2">
+        Episode 2
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=19e0vv0WLKjFKpxyVg7sVZcS1QXZ02f7G&title=Jujutsu Kaisen&episode=3">
+        Episode 3
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1fzEAzZLlr16iD7s7AT4RBnyaaMQumqT_&title=Jujutsu Kaisen&episode=4">
+        Episode 4
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1gs0F_BoA4nyw5L_RUZLDlc3R5bP4Y7B8&title=Jujutsu Kaisen&episode=5">
+        Episode 5
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1LpmR0ryWZc3NCwX6YONnp3OC3ksK0aye&title=Jujutsu Kaisen&episode=6">
+        Episode 6
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1QrYMT8WmM_Lm9_Q1y7u49Y2xmGQYETvd&title=Jujutsu Kaisen&episode=7">
+        Episode 7
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1fliGmCTSWqrNG--Mhps3rYGb01a_2x5M&title=Jujutsu Kaisen&episode=8">
+        Episode 8
+      </a>
+
+      <a href="player.html?video=https://drive.google.com/uc?export=download&id=1A0RO6R0Tv4BH0L-6ehX0Dvp3DAivr44H&title=Jujutsu Kaisen&episode=9">
+        Episode 9
+      </a>
+
+    </aside>
+
+    <!-- VIDEO PLAYER AREA -->
+    <section class="player-area">
+      <h2 id="showTitle"></h2>
+      <p id="episodeLabel"></p>
+
+      <video id="videoPlayer" controls preload="metadata">
+        Your browser does not support HTML5 video.
+      </video>
+    </section>
+
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const video = params.get("video");
+    const title = params.get("title");
+    const episode = params.get("episode");
+
+    const player = document.getElementById("videoPlayer");
+    const showTitle = document.getElementById("showTitle");
+    const episodeLabel = document.getElementById("episodeLabel");
+
+    if (video) player.src = video;
+    if (title) showTitle.textContent = title;
+    if (episode) episodeLabel.textContent = "Episode " + episode;
+  </script>
+
 </body>
 </html>
